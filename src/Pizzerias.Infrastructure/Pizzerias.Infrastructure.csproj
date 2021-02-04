@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pizzerias.Domain\Pizzerias.Domain.csproj" />
+    <ProjectReference Include="..\Pizzerias.Persistance\Pizzerias.Persistance.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Configuration\Commands\" />
+    <Folder Include="Configuration\Queries\" />
+    <Folder Include="Behaviours\" />
+    <Folder Include="Modules\Pizzerias\AddPizzeria\" />
+    <Folder Include="Modules\Pizzerias\GetPizzas\" />
+    <Folder Include="UnitOfWork\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.78" />
+    <PackageReference Include="FluentValidation" Version="9.5.0" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+  </ItemGroup>
+
+</Project>
