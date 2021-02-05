@@ -22,7 +22,8 @@ namespace Pizzerias.Infrastructure.Modules.Pizzerias.GetPizzas
             return await connection.QueryAsync<PizzaDto>(
                 "SELECT " +
                 $"[Pizzas].[Name] AS [{nameof(PizzaDto.Name)}], " +
-                $"[Pizzas].[Price] AS [{nameof(PizzaDto.Price)}] " +
+                $"[Pizzas].[Price] AS [{nameof(PizzaDto.Price)}], " +
+                $"[Pizzas].[Ingredients] AS [{nameof(PizzaDto.Ingredients)}] " +
                 "FROM [PizzeriasAPI].[dbo].[Pizzas] AS [Pizzas] " +
                 "WHERE [Pizzas].[PizzeriaId] = @PizzeriaId",
                 new
