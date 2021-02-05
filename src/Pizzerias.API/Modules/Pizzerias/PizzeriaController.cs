@@ -4,6 +4,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Pizzerias.Infrastructure.Modules.Pizzerias.AddPizza;
 using Pizzerias.Infrastructure.Modules.Pizzerias.AddPizzeria;
+using Pizzerias.Infrastructure.Modules.Pizzerias.GetPizzaDetails;
 using Pizzerias.Infrastructure.Modules.Pizzerias.GetPizzas;
 
 namespace Pizzerias.API.Modules.Pizzerias
@@ -37,6 +38,13 @@ namespace Pizzerias.API.Modules.Pizzerias
         public async Task<IActionResult> GetPizzas(Guid pizzeriaId)
         {
             var pizzas = await _mediator.Send(new GetPizzasQuery(pizzeriaId));
+            return Ok(pizzas);
+        }
+
+        [HttpGet("{pizzeriaId}/GetPizza/{pizzaId}")]
+        public async Task<IActionResult> GetPizzaDetails(Guid pizzeriaId, Guid pizzaId)
+        {
+            var pizzas = await _mediator.Send(new GetPizzaDetailQuery(pizzeriaId, pizzaId));
             return Ok(pizzas);
         }
     }
